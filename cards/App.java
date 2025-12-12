@@ -10,10 +10,10 @@ public class App {
         System.out.println("value is: " + value);
         
         String str = c.toString();
-        System.out.println("card is: " + str);
-        */
+        System.out.println("card is: " + str);*/
+        
        // ****** test Deck class *******
-        /*System.out.println();
+        System.out.println();
         System.out.println("******* Testing Deck class *******");
 
         // A deck is constructed in the default order
@@ -52,7 +52,7 @@ public class App {
         // print the first 5 cards in the deck - expected "D3 D4 D5 D6 D7"
         System.out.println("Five cards after cut at index 2:");
         d.print(5);
-        System.out.println();*/
+        System.out.println();
 
         CardTable table = new CardTable();
 
