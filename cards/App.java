@@ -3,14 +3,15 @@ package cards;
 public class App {
     
    public static void main(String[] args) {
-     // *******  test Card class *******
+      /* 
+      // *******  test Card class *******
 
-        /*Card c = new Card(1,10);
+        Card c = new Card(0,10);
         int value = c.getValue();
         System.out.println("value is: " + value);
         
         String str = c.toString();
-        System.out.println("card is: " + str);*/
+        System.out.println("card is: " + str);
         
        // ****** test Deck class *******
         System.out.println();
@@ -54,6 +55,34 @@ public class App {
         d.print(5);
         System.out.println();
 
+         // ****** test Hand class *******
+        System.out.println();
+        System.out.println("******* Testing Hand class *******");
+        int handSize = 5;
+        System.out.println("Creating a new hand. size=" + handSize);
+        Hand h = new Hand(handSize);
+
+        // add cards to the hand from the new deck
+        System.out.println("Creating a new deck in default order to draw cards from...");
+        d = new Deck();
+        for( int i=0; i < handSize; i++ ){
+            Card card = d.draw();
+            System.out.println("Adding card to hand: " + card);
+            h.add(card);
+        }
+
+        System.out.println("Current hand: " + h);
+        System.out.println();
+        System.out.println("Hand length: " + h.length());
+        System.out.println("getting card at index 2: " + h.get(2));
+        System.out.println("Removing card at index 3: " + h.remove(3));
+        System.out.println("Current hand after removal: " + h);
+        System.out.println("Hand length after removal: " + h.length());
+
+        // 
+        */
+
+        
         CardTable table = new CardTable();
 
         table.startPlaying();

@@ -6,29 +6,40 @@ public class Deck {
     private Card[] cards;
     private int topCardIndex; // index of the next card to deal
 
+    // creates and stores 52 (4 * 13) cards in the default sequennce 
     public Deck() {
+        // create cards array instance with length 52
         cards = new Card[52];
 
         int index = 0;
+        // iterate over all 4 card suites
         for (int suit = 0; suit < 4; suit++) {
+            // create all 13 cards (Ace -> King >> 0->12) for each suit
             for (int value = 0; value < 13; value++) {
                 cards[index] = new Card(suit, value);
                 index++;
             }
         }
+        // set theCardIndex to the first element in the array (top of the deck)
         topCardIndex = 0;
     }
 
+    // prinst out string representations of the number of cards from the top of the deck to the deck
+    // outputs all cards in one line, separating each card with a single whitespace
     public void print(int numCards) {
-        for (int i = 0; i < numCards && i < cards.length; i++) {
-            // print the card and a space  
+        int n=0;
+        for (int i = topCardIndex; n < numCards && i < cards.length; i++, n++) {
+            // print the card  
             System.out.print(cards[i].toString());
-            if (i < numCards - 1 && i < cards.length - 1) {
+            // print space except after the last card
+            if (n < numCards - 1 && i < cards.length - 1) {
                 System.out.print(" ");
             }
         }
     }
 
+    // shuffles the deck - randomizes the order of the deck
+    // pre-condition - deck is full - no cards have been drawn
     public void shuffle() {
        Random random = new Random();
 
@@ -42,15 +53,11 @@ public class Deck {
         }
     } // end shuffle
 
+    // internal (private) utility method to swap two cards specified by two indices
     private void swapCards(int index1, int index2) {
-        // System.out.println("Swapping cards at index " + index1 + " and " + index2);
-        // System.out.println("Before swap: " + cards[index1] + " <-> " + cards[index2]);
-
         Card temp = cards[index1];
         cards[index1] = cards[index2];
-        cards[index2] = temp;
-        
-        // System.out.println("After swap: " + cards[index1] + " <-> " + cards[index2]);
+        cards[index2] = temp;  
     }// end swapCards
 
     // cut the deck at the specified index
@@ -68,10 +75,8 @@ public class Deck {
             return; // invalid cut index, do nothing
         }
 
-        // move cards from the top of the deck up to, but not including cutIndex 
-        // to the end of the deck.
-
-        
+        // move cards from the top of the deck up to the bottom of the deck
+        // starting from 0 to cutIndex ( inclusive) to the end of the deck.      
         for( int i=0; i < cutIndex; i++ ){
             Card temp = cards[0];
             // shift all cards one position to the left 
