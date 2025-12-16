@@ -17,3 +17,4 @@ interface Board {
     // Get the internal storage array (for testing)
     public int[][] get();
 }
+
