@@ -1,16 +1,27 @@
-package warmup;
+package sorting;
+
+import java.util.Random;
 
 public class Main {
 
-    public static void main(String[] args) {
-        int sum = 0;
+    public static void main(String[] args)
+    {
+        int[] testInput = randomArray(100);
 
-        for (int i = 1; i < 1000; i++) {
-            if (i%3 == 0 || i % 5 == 0){
-                sum = sum +i;
-            }
+        // Increase loop count for better measurement
+        TestSuite.run(testInput, 1);
+    }
+
+    public static int[] randomArray(int length)
+    {
+        Random rand = new Random();
+        int[] array = new int[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            array[i] = rand.nextInt(1000);
         }
-        System.out.println(sum);
 
+        return array;
     }
 }
